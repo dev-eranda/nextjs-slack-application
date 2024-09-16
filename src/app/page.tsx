@@ -17,7 +17,7 @@ export default function Home() {
     if (isLoading) return;
 
     if (workspaceId) {
-      router.replace(`workspace/${workspaceId}`);
+      router.replace(`/workspace/${workspaceId}`);
     } else if (!open) {
       setOpen(true);
     }
