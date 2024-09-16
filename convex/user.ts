@@ -6,10 +6,12 @@ export const current = query({
   handler: async (ctx) => {
     const userId = await getAuthUserId(ctx);
 
+    // User is not authenticated
     if (userId === null) {
       return null;
     }
 
+    // Fetch user data from the database
     return await ctx.db.get(userId);
   },
 });

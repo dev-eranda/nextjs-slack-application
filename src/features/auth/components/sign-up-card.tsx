@@ -41,7 +41,7 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
 
     setPending(true);
     signIn("password", { name, email, password, flow: "signUp" })
-      .catch(() => {
+      .catch((err: any) => {
         setError("Something went wrong");
       })
       .finally(() => {
