@@ -11,6 +11,7 @@ import {
    DialogTrigger,
 } from "@/components/ui/dialog";
 
+import { useConfirm } from "@/app/hooks/use-confirm";
 import { useWorkspaceId } from "@/app/hooks/use-workspace-id";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -29,6 +30,8 @@ export const PreferencesModal = ({ open, setOpen, initialValue }: PreferencesMod
    const workspaceId = useWorkspaceId();
    const router = useRouter();
 
+   const [ConfirmDialog, confirm] = useConfirm("Are you sure?", "This acction is irreversable");
+
    const [value, setValue] = useState(initialValue);
    const [editOpen, setEditOpen] = useState(false);
 
@@ -46,13 +49,17 @@ export const PreferencesModal = ({ open, setOpen, initialValue }: PreferencesMod
                toast.success("workspace name updated");
             },
             onError: () => {
-               toast.success("Faild to update workspace name");
+               toast.error("Faild to update workspace name");
             },
          }
       );
    };
 
-   const handleRemove = () => {
+   const handleRemove = async () => {
+      const ok = await confirm();
+
+      if (!ok) return;
+
       removeWorkspace(
          {
             id: workspaceId,
@@ -63,67 +70,70 @@ export const PreferencesModal = ({ open, setOpen, initialValue }: PreferencesMod
                toast.success("workspace removed");
             },
             onError: () => {
-               toast.success("Faild to remove workspace");
+               toast.error("Faild to remove workspace");
             },
          }
       );
    };
 
    return (
-      <Dialog open={open} onOpenChange={setOpen}>
-         <DialogContent className="p-0 bg-gray-50 overflow-hidden">
-            <DialogHeader className="p-4 border bg-white">
-               <DialogTitle>{value}</DialogTitle>
-            </DialogHeader>
-            <div className="px-4 pb-4 flex flex-col gap-y-2">
-               <Dialog open={editOpen} onOpenChange={setEditOpen}>
-                  <DialogTrigger>
-                     <div className="px-5 py-4 bg-white rounded-lg border cursor-pointer hover:bg-gray-50">
-                        <div className="flex items-center justify-between">
-                           <p className="text-sm font-semibold">Workspace name</p>
-                           <p className="text-sm text-[#1264a3] hover:underline font-semibold">Edit</p>
+      <>
+         <ConfirmDialog />
+         <Dialog open={open} onOpenChange={setOpen}>
+            <DialogContent className="p-0 bg-gray-50 overflow-hidden">
+               <DialogHeader className="p-4 border bg-white">
+                  <DialogTitle>{value}</DialogTitle>
+               </DialogHeader>
+               <div className="px-4 pb-4 flex flex-col gap-y-2">
+                  <Dialog open={editOpen} onOpenChange={setEditOpen}>
+                     <DialogTrigger>
+                        <div className="px-5 py-4 bg-white rounded-lg border cursor-pointer hover:bg-gray-50">
+                           <div className="flex items-center justify-between">
+                              <p className="text-sm font-semibold">Workspace name</p>
+                              <p className="text-sm text-[#1264a3] hover:underline font-semibold">Edit</p>
+                           </div>
+                           <p className="text-sm flex items-start">{value}</p>
                         </div>
-                        <p className="text-sm flex items-start">{value}</p>
-                     </div>
-                  </DialogTrigger>
-                  <DialogContent>
-                     <DialogHeader>
-                        <DialogTitle>Rename this workspace</DialogTitle>
-                     </DialogHeader>
-                     <form className="space-y-4" onSubmit={handleEdit}>
-                        <Input
-                           value={value}
-                           disabled={isUpdatingWorkspace}
-                           onChange={(e) => setValue(e.target.value)}
-                           required
-                           autoFocus
-                           minLength={3}
-                           maxLength={80}
-                           placeholder="Workspace name e.g. 'Work', 'Personal', 'Home'"
-                        />
+                     </DialogTrigger>
+                     <DialogContent>
+                        <DialogHeader>
+                           <DialogTitle>Rename this workspace</DialogTitle>
+                        </DialogHeader>
+                        <form className="space-y-4" onSubmit={handleEdit}>
+                           <Input
+                              value={value}
+                              disabled={isUpdatingWorkspace}
+                              onChange={(e) => setValue(e.target.value)}
+                              required
+                              autoFocus
+                              minLength={3}
+                              maxLength={80}
+                              placeholder="Workspace name e.g. 'Work', 'Personal', 'Home'"
+                           />
 
-                        <DialogFooter>
-                           <DialogClose asChild>
-                              <Button variant="outline" disabled={isUpdatingWorkspace}>
-                                 Cancel
+                           <DialogFooter>
+                              <DialogClose asChild>
+                                 <Button variant="outline" disabled={isUpdatingWorkspace}>
+                                    Cancel
+                                 </Button>
+                              </DialogClose>
+                              <Button type="submit" disabled={isUpdatingWorkspace}>
+                                 Save
                               </Button>
-                           </DialogClose>
-                           <Button type="submit" disabled={isUpdatingWorkspace}>
-                              Save
-                           </Button>
-                        </DialogFooter>
-                     </form>
-                  </DialogContent>
-               </Dialog>
-               <button
-                  disabled={isRemovingWorkspace}
-                  onClick={handleRemove}
-                  className="flex items-center gap-x-2 px-5 py-4 bg-white rounded-lg cursor-pointer hover:bg-gray-50 text-rose-600">
-                  <TrashIcon className="size-4" />
-                  <p className="text-sm font-semibold">Delete Wokspace</p>
-               </button>
-            </div>
-         </DialogContent>
-      </Dialog>
+                           </DialogFooter>
+                        </form>
+                     </DialogContent>
+                  </Dialog>
+                  <button
+                     disabled={isRemovingWorkspace}
+                     onClick={handleRemove}
+                     className="flex items-center gap-x-2 px-5 py-4 bg-white rounded-lg cursor-pointer hover:bg-gray-50 text-rose-600">
+                     <TrashIcon className="size-4" />
+                     <p className="text-sm font-semibold">Delete Wokspace</p>
+                  </button>
+               </div>
+            </DialogContent>
+         </Dialog>
+      </>
    );
 };
