@@ -2,9 +2,9 @@ import { useParams } from "next/navigation";
 
 import { Id } from "../../../convex/_generated/dataModel";
 
-export const useWorkspaceId = () => {
+export const useChannelId = () => {
    const params = useParams();
 
-   // directory name = [workspaceId]
-   return params.workspaceId as Id<"workspaces">;
+   // directory name = [channelId]
+   return params.channelId as Id<"channels">;
 };
