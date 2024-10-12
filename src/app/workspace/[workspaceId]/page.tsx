@@ -1,7 +1,7 @@
 "use client";
 
 import { useWorkspaceId } from "@/app/hooks/use-workspace-id";
-import { useGetChannels } from "@/features/channels/api/use-get-channel";
+import { useGetChannels } from "@/features/channels/api/use-get-channels";
 import { useCreateChannelModal } from "@/features/channels/store/use-create-channel-modal";
 import { useCurrentMember } from "@/features/members/api/use-current-member";
 import { useGetWorkspace } from "@/features/workspaces/api/use-get-workspace";
@@ -33,18 +33,18 @@ const WorkSpaceIdPage = () => {
       }
    }, [channelId, workspaceLoading, channelLoading, workspace, open, setOpen, router, workspaceId, isAdmin]);
 
-   if (workspaceLoading || channelLoading) {
+   if (workspaceLoading || channelLoading || memberLoading) {
       return (
          <div className="h-full flex-1 flex items-center justify-center flex-col gap-2">
-            <Loader className="size-6 animate-spin text-muted-foreground" />
+            <Loader className="size-5 animate-spin text-muted-foreground" />
          </div>
       );
    }
 
-   if (!workspace) {
+   if (!workspace || !member) {
       return (
          <div className="h-full flex-1 flex items-center justify-center flex-col gap-2">
-            <TriangleAlert className="size-6 text-muted-foreground" />
+            <TriangleAlert className="size-5 text-muted-foreground" />
             <span className="text-sm text-muted-foreground">Workspace not found</span>
          </div>
       );
@@ -52,7 +52,7 @@ const WorkSpaceIdPage = () => {
 
    return (
       <div className="h-full flex-1 flex items-center justify-center flex-col gap-2">
-         <TriangleAlert className="size-6 text-muted-foreground" />
+         <TriangleAlert className="size-5 text-muted-foreground" />
          <span className="text-sm text-muted-foreground">No channel found</span>
       </div>
    );
