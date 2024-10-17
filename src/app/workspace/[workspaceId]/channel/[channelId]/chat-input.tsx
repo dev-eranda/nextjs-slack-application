@@ -13,7 +13,7 @@ export const ChatInput = ({ placeholder }: ChatInputProps) => {
 
    return (
       <div className="px-5 w-full">
-         <Editor placeholder={placeholder} onSubmit={() => {}} disabled={false} innerRef={editorRef} variant="create" />
+         <Editor variant="create" placeholder={placeholder} onSubmit={() => {}} disabled={false} innerRef={editorRef} />
       </div>
    );
 };
