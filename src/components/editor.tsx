@@ -6,6 +6,7 @@ import "quill/dist/quill.snow.css";
 import { MutableRefObject, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { MdSend } from "react-icons/md";
 import { PiTextAa } from "react-icons/pi";
+import { EmojiPopover } from "./emoji-popover";
 import { Hint } from "./hint";
 import { Button } from "./ui/button";
 
@@ -123,6 +124,13 @@ const Editor = ({
       }
    };
 
+   const onEmojiSelect = (emoji: any) => {
+      const quill = quillRef.current;
+
+      // add emoji to end of the characters, if there is no character index is 0
+      quill?.insertText(quill?.getSelection()?.index || 0, emoji.native);
+   };
+
    const isEmpty = text.replace(/<(.|\n)*?>/g, "").trim().length === 0;
 
    return (
@@ -137,11 +145,11 @@ const Editor = ({
                </Hint>
 
                {variant === "create" && (
-                  <Hint label="Emoji">
-                     <Button disabled={disabled} size="iconSm" variant="ghost" onClick={() => {}}>
+                  <EmojiPopover onEmojiSelect={onEmojiSelect}>
+                     <Button disabled={disabled} size="iconSm" variant="ghost">
                         <Smile className="size-4" />
                      </Button>
-                  </Hint>
+                  </EmojiPopover>
                )}
 
                <Hint label="Image">
