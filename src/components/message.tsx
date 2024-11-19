@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { Doc, Id } from "../../convex/_generated/dataModel";
 import { Hint } from "./hint";
 import { Thumbnail } from "./thumbnail";
+import { Toolbar } from "./toolbar";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const Renderer = dynamic(() => import("@/components/renderer"), { ssr: false });
@@ -102,6 +103,17 @@ export const Message = ({
                {updatedAt ? <span className="text-sm text-muted-foreground">(edited)</span> : null}
             </div>
          </div>
+         {!isEditing && (
+            <Toolbar
+               isAuthor={isAuthor}
+               isPending={false}
+               handleEdit={() => setEditingId(id)}
+               handleThread={() => {}}
+               handleDelete={() => {}}
+               handleReaction={() => {}}
+               hideThreadButton={hideThreadButton}
+            />
+         )}
       </div>
    );
 };
