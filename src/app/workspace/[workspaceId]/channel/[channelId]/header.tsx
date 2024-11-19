@@ -15,7 +15,6 @@ import { Input } from "@/components/ui/input";
 import { useRemoveChannel } from "@/features/channels/api/use-remove-channel";
 import { useUpdateChannel } from "@/features/channels/api/use-update-channel";
 import { useCurrentMember } from "@/features/members/api/use-current-member";
-import { Value } from "convex/values";
 import { TrashIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
