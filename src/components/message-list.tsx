@@ -39,7 +39,7 @@ export const MessageList = ({
    isLoadingMore,
    canLoadMore,
 }: MessageListProps) => {
-   const [editingId, setEditingid] = useState<Id<"messages"> | null>(null);
+   const [editingId, setEditingId] = useState<Id<"messages"> | null>(null);
 
    const workspaceId = useWorkspaceId();
    const { data: currentMember } = useCurrentMember({ workspaceId });
@@ -90,7 +90,7 @@ export const MessageList = ({
                            updatedAt={message.updatedAt}
                            createdAt={message._creationTime}
                            isEditing={editingId === message._id}
-                           setEditingId={setEditingid}
+                           setEditingId={setEditingId}
                            isCompact={isCompact}
                            hideThreadButton={variant === "thred"}
                            threadCount={message.threadCount}
