@@ -72,6 +72,21 @@ export const Message = ({
 
    const isPending = isUpdatingMessage;
 
+   const handleUpdate = ({ body }: { body: string }) => {
+      updateMessage(
+         { id, body },
+         {
+            onSuccess: () => {
+               toast.success("Message updated");
+               setEditingId(null);
+            },
+            onError: () => {
+               toast.error("Failed to update message");
+            },
+         }
+      );
+   };
+
    const handleRemove = async () => {
       const ok = await confirm();
 
@@ -82,26 +97,10 @@ export const Message = ({
          {
             onSuccess: () => {
                toast.success("Message deleted");
-               setEditingId(null);
-            },
-            onError: () => {
-               toast.error("Failed to delete message");
-            },
-         }
-      );
-   };
-
-   const handleUpdate = ({ body }: { body: string }) => {
-      updateMessage(
-         { id, body },
-         {
-            onSuccess: () => {
-               toast.success("Message updated");
-
                //todo: close thread if opened
             },
             onError: () => {
-               toast.error("Failed to update message");
+               toast.error("Failed to delete message");
             },
          }
       );
