@@ -103,6 +103,7 @@ export const MessageList = ({
                })}
             </div>
          ))}
+         {/* Load more message */}
          <div
             className="h-1"
             ref={(el) => {
@@ -110,6 +111,7 @@ export const MessageList = ({
                   const observer = new IntersectionObserver(
                      ([entry]) => {
                         if (entry.isIntersecting && canLoadMore) {
+                           // Loadmore function
                            loadMore();
                         }
                      },
@@ -120,7 +122,6 @@ export const MessageList = ({
                }
             }}
          />
-
          {isLoadingMore && (
             <div className="text-center my-2 relative">
                <hr className="absolute top-1/2 left-0 right-0 border-t border-gray-300" />
