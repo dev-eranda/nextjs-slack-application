@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -36,7 +37,7 @@ export default function RootLayout({
                   <JotaiProvider>
                      <Toaster />
                      <Modals />
-                     {children}
+                     <NuqsAdapter>{children}</NuqsAdapter>
                   </JotaiProvider>
                </ConvexClientProvider>
             </body>
