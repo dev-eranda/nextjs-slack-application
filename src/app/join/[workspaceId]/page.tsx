@@ -29,7 +29,6 @@ const JoinPage = () => {
    }, [isMember, router, workspaceId]);
 
    const handleComplete = (value: string) => {
-      console.log(value);
       mutate(
          { workspaceId, joinCode: value },
          {
@@ -38,7 +37,6 @@ const JoinPage = () => {
                toast.success("Workspace joined");
             },
             onError: (error) => {
-               console.log(error);
                toast.error("Failed to join workspace");
             },
          }

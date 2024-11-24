@@ -3,6 +3,8 @@ import { useWorkspaceId } from "@/app/hooks/use-workspace-id";
 import { Message } from "@/components/message";
 import { Button } from "@/components/ui/button";
 import { useCurrentMember } from "@/features/members/api/use-current-member";
+import { useGetMessage } from "@/features/messages/api/use-get-message";
+import { useGetMessages } from "@/features/messages/api/use-get-messages";
 import { useGenerateUploadUrl } from "@/features/upload/api/use-generate-upload-url";
 import { differenceInMinutes, format, isToday, isYesterday } from "date-fns";
 import { AlertTriangle, Loader, XIcon } from "lucide-react";
@@ -12,8 +14,6 @@ import { useRef, useState } from "react";
 import { toast } from "sonner";
 import { Id } from "../../../../convex/_generated/dataModel";
 import { useCreateMessage } from "../api/use-create-message";
-import { useGetMessage } from "../api/use-get-message";
-import { useGetMessages } from "../api/use-get-messages.";
 
 const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
 

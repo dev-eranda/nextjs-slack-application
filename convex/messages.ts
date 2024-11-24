@@ -137,16 +137,36 @@ export const get = query({
          _conversationId = parentMessage.conversationId;
       }
 
-      const result = await ctx.db
-         .query("messages")
-         .withIndex("by_channel_id_parent_message_id_conversation_id", (q) =>
-            q
-               .eq("channelId", args.channelId)
-               .eq("parentMessageId", args.parentMessageId)
-               .eq("conversationId", args.conversationId)
-         )
-         .order("desc")
-         .paginate(args.paginationOpts);
+      // const result = await ctx.db
+      //    .query("messages")
+      //    .withIndex("by_channel_id_parent_message_id_conversation_id", (q) =>
+      //       q
+      //          .eq("channelId", args.channelId)
+      //          .eq("parentMessageId", args.parentMessageId)
+      //          .eq("conversationId", args.conversationId)
+      //    )
+      //    .order("desc")
+      //    .paginate(args.paginationOpts);
+
+      let result;
+      if (!args.channelId && !args.conversationId && args.parentMessageId) {
+         result = await ctx.db
+            .query("messages")
+            .withIndex("by_parent_message_id", (q) => q.eq("parentMessageId", args.parentMessageId))
+            .order("desc")
+            .paginate(args.paginationOpts);
+      } else {
+         result = await ctx.db
+            .query("messages")
+            .withIndex("by_channel_id_parent_message_id_conversation_id", (q) =>
+               q
+                  .eq("channelId", args.channelId)
+                  .eq("parentMessageId", args.parentMessageId)
+                  .eq("conversationId", args.conversationId)
+            )
+            .order("desc")
+            .paginate(args.paginationOpts);
+      }
 
       return {
          ...result,

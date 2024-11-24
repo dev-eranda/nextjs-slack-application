@@ -24,8 +24,6 @@ const WorkSpaceIdPage = () => {
    useEffect(() => {
       if (workspaceLoading || channelLoading || !workspace || memberLoading || !member) return;
 
-      console.log({ channelId, open });
-
       if (channelId) {
          router.push(`/workspace/${workspaceId}/channel/${channelId}`);
       } else if (!open && isAdmin) {

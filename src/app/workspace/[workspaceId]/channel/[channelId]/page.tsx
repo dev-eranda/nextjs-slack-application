@@ -3,7 +3,7 @@
 import { useChannelId } from "@/app/hooks/use-channel-id";
 import { MessageList } from "@/components/message-list";
 import { useGetChannel } from "@/features/channels/api/use-get-channel";
-import { useGetMessages } from "@/features/messages/api/use-get-messages.";
+import { useGetMessages } from "@/features/messages/api/use-get-messages";
 import { Loader, TriangleAlert } from "lucide-react";
 import { ChatInput } from "./chat-input";
 import { Header } from "./header";
