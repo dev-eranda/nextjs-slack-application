@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { Doc, Id } from "../../convex/_generated/dataModel";
 import { Hint } from "./hint";
 import { Reactions } from "./reactions";
+import { ThreadBar } from "./thread-bar";
 import { Thumbnail } from "./thumbnail";
 import { Toolbar } from "./toolbar";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
@@ -39,6 +40,7 @@ interface MessageProps {
    hideThreadButton?: boolean;
    threadCount?: number;
    threadImage?: string;
+   threadName?: string;
    threadTimestamp?: number;
 }
 
@@ -63,6 +65,7 @@ export const Message = ({
    hideThreadButton,
    threadCount,
    threadImage,
+   threadName,
    threadTimestamp,
 }: MessageProps) => {
    const { parentMessageId, onOpenMessage, onClose } = usePanel();
@@ -156,6 +159,13 @@ export const Message = ({
                         <Thumbnail url={image} />
                         {updatedAt ? <span className="text-sm text-muted-foreground">(edited)</span> : null}
                         <Reactions data={reactions} onChange={handleReaction} />
+                        <ThreadBar
+                           count={threadCount}
+                           image={threadImage}
+                           timestamp={threadTimestamp}
+                           name={threadName}
+                           onClick={() => onOpenMessage(id)}
+                        />
                      </div>
                   )}
                </div>
@@ -220,6 +230,13 @@ export const Message = ({
                      <Thumbnail url={image} />
                      {updatedAt ? <span className="text-sm text-muted-foreground">(edited)</span> : null}
                      <Reactions data={reactions} onChange={handleReaction} />
+                     <ThreadBar
+                        count={threadCount}
+                        image={threadImage}
+                        timestamp={threadTimestamp}
+                        name={threadName}
+                        onClick={() => onOpenMessage(id)}
+                     />
                   </div>
                )}
             </div>
