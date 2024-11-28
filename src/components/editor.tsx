@@ -133,11 +133,11 @@ const Editor = ({
       }
    };
 
-   const onEmojiSelect = (emoji: any) => {
+   const onEmojiSelect = (emojiValue: string) => {
       const quill = quillRef.current;
 
       // add emoji to end of the characters, if there is no character index is 0
-      quill?.insertText(quill?.getSelection()?.index || 0, emoji.native);
+      quill?.insertText(quill?.getSelection()?.index || 0, emojiValue);
    };
 
    const isEmpty = !image && text.replace(/<(.|\n)*?>/g, "").trim().length === 0;
