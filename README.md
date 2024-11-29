@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Slack Clone Application
 
-## Getting Started
+**Developed By:** Eranda Samarasinghe
+<hr />
 
-First, run the development server:
+## Project Backgroud and Overview
+This repository contains a Slack clone built with TypeScript, Next.js and Convex, showcasing modern web development practices. It implements OAuth for secure user authentication and includes features such as real-time messaging, channel creation, direct messaging, and user management. The project is an excellent demonstration of building scalable web application.
+<hr />
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project Goals
+The main objectives of this application are to:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Developed a Slack clone using TypeScript, Next.js and Convex, following modern best practices for building scalable web applications.
+2. OAuth authentication was implemented to handle users' login and session management securely.
+3. Integration of real-time messaging allowed users to instantly communicate within the application.
+4. Channel creation and direct messaging enabled, similar to core Slack functionality for users to collaborate.
+5. Developed effective handling of user roles and permissions.
+<hr />
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Installation
+1. Clone repository:
+   ```sh
+   git clone https://github.com/dev-eranda/nextjs-slack-application
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   ```sh
+   npm install
 
-## Learn More
+3. Start development server:
+   ```sh
+   npm run dev
 
-To learn more about Next.js, take a look at the following resources:
+  - **Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.**
+<hr />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Credits
+This project was developed using concepts and techniques demonstrated in the following tutorial:
+- [YouTube Tutorial: "Build a Real-Time Slack Clone With Nextjs"](https://www.youtube.com/watch?v=lXITA5MZIiI)
