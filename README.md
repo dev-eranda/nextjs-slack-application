@@ -1,6 +1,6 @@
 # Slack Clone Application
 
-**Developed By:** Eranda Samarasinghe
+**Web Application:** [Click here to view the demonstration application](https://nextjs-slack-application.vercel.app/)  
 <hr />
 
 ## Project Backgroud and Overview
@@ -31,8 +31,3 @@ The main objectives of this application are to:
    npm run dev
 
   - **Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.**
-<hr />
-
-## Credits
-This project was developed using concepts and techniques demonstrated in the following tutorial:
-- [YouTube Tutorial: "Build a Real-Time Slack Clone With Nextjs"](https://www.youtube.com/watch?v=lXITA5MZIiI)
