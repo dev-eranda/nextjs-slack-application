@@ -29,7 +29,19 @@ const WorkSpaceIdPage = () => {
       } else if (!open && isAdmin) {
          setOpen(true);
       }
-   }, [channelId, workspaceLoading, channelLoading, workspace, open, setOpen, router, workspaceId, isAdmin]);
+   }, [
+      channelId,
+      workspaceLoading,
+      channelLoading,
+      workspace,
+      open,
+      setOpen,
+      router,
+      workspaceId,
+      isAdmin,
+      member,
+      memberLoading,
+   ]);
 
    if (workspaceLoading || channelLoading || memberLoading) {
       return (

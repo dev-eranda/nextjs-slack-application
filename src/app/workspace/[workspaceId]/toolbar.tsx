@@ -1,7 +1,6 @@
 import { useWorkspaceId } from "@/app/hooks/use-workspace-id";
 import { Button } from "@/components/ui/button";
 import {
-   Command,
    CommandDialog,
    CommandEmpty,
    CommandGroup,
@@ -9,13 +8,11 @@ import {
    CommandItem,
    CommandList,
    CommandSeparator,
-   CommandShortcut,
 } from "@/components/ui/command";
 import { useGetChannels } from "@/features/channels/api/use-get-channels";
 import { useGetMembers } from "@/features/members/api/use-get-members.";
 import { useGetWorkspace } from "@/features/workspaces/api/use-get-workspace";
 import { Info, Search } from "lucide-react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 

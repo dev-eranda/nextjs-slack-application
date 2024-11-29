@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemberId } from "@/app/hooks/use-member-id";
-import { usePanel } from "@/app/hooks/use-panel";
 import { useWorkspaceId } from "@/app/hooks/use-workspace-id";
 import { useCreateOrGetConversation } from "@/features/conversation/api/use-create-or-get-conversation";
 import { AlertTriangle, Loader } from "lucide-react";
