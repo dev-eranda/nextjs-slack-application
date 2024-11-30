@@ -10,7 +10,7 @@ This repository contains a Slack clone built with TypeScript and Next.js, demons
 ## Project Goals
 The main objectives of this application are to:
 
-1. Develop a Slack clone using TypeScript and Next.js, following modern best practices for building scalable web applications.
+1. Develop a app using TypeScript and Next.js, following modern best practices for building scalable web applications.
 2. Implement OAuth authentication for secure user login and session management.
 3. Integrate real-time messaging to allow users to communicate instantly within the application.
 4. Enable channel creation and direct messaging, similar to core Slack functionality, to facilitate user collaboration.
