@@ -13,7 +13,7 @@ The main objectives of this application are to:
 1. Develop the app using TypeScript and Next.js, following modern practices for building scalable web app.
 2. Implement OAuth authentication for secure user login and session management.
 3. Integrate real-time messaging to allow users to communicate instantly within the application.
-4. Enable channel creation and direct messaging, similar to core Slack functionality, to facilitate user collaboration.
+4. Enable channel creation and direct messaging, similar to core Slack functionality.
 5. Develop effective handling of user roles and permissions to manage access control and ensure security.
 <hr />
 
