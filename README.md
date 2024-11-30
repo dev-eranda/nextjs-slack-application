@@ -18,7 +18,7 @@ The main objectives of this application are to:
 <hr />
 
 ### Technologies Used
-- Next.js, Convex, Tailwind CSS, NextAuth.js, TypeScript, React.js, shadcn/ui
+- Next.js, React.js, TypeScript, Tailwind CSS, NextAuth.js, Convex, shadcn/ui
 <hr />
 
 ## Installation
