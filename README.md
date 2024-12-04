@@ -17,8 +17,10 @@ The main objectives of this application are to:
 5. Develop effective handling of user roles and permissions to manage access control and ensure security.
 <hr />
 
-### Technologies Used
-- Next.js, React.js, TypeScript, Tailwind CSS, NextAuth.js, Convex, shadcn/ui
+## Technical Details
+Core technologies used: 
+
+- **Next.js, React.js, TypeScript, Tailwind CSS, NextAuth.js, Convex, shadcn/ui**
 <hr />
 
 ## Installation
