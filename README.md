@@ -26,7 +26,7 @@ Core technologies used:
 ## Installation
 1. Clone repository:
    ```sh
-   git clone https://github.com/dev-eranda/nextjs-slack-application
+   git clone https://github.com/dev-eranda/nextjs-slack-application.git
 
 2. Install dependencies:
    ```sh
