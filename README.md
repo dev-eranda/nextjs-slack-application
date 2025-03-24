@@ -3,7 +3,7 @@
 **Web Application:** [Click here to view the demonstration application](https://nextjs-slack-application.vercel.app/)  
 <hr />
 
-## Project Backgroud and Overview
+## Project Background and Overview
 This repository contains a Slack clone built with TypeScript and Next.js, demonstrating modern web development practices. It implements OAuth for secure user authentication and includes features such as real-time messaging, channel creation, direct messaging, user management, channel messaging, and replying to threads within channels. This project serves as an excellent demonstration of building scalable web applications
 <hr />
 
@@ -20,7 +20,7 @@ The main objectives of this application are to:
 ## Technical Details
 Core technologies used: 
 
-- **Next.js, React.js, TypeScript, Tailwind CSS, NextAuth.js, Convex, shadcn/ui**
+- **Next.js, React, TypeScript, Tailwind CSS, NextAuth, Convex, shadcn/ui**
 <hr />
 
 ## Installation
